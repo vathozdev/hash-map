@@ -31,19 +31,20 @@ assert.equal(test.has("apple"), true);
 // test collision handling
 const collisionTest = new HashMap();
 
-let firstKey = "key1";
-let secondKey = "key2";
+collisionTest.set("apple", "red");
+collisionTest.set("applet", "green");
 
-while (collisionTest.hash(firstKey) !== collisionTest.hash(secondKey)) {
-  secondKey += "x";
-}
+assert.equal(
+  collisionTest.hash("apple"),
+  collisionTest.hash("applet"),
+);
 
-collisionTest.set(firstKey, "value1");
-collisionTest.set(secondKey, "value2");
+assert.equal(collisionTest.get("apple"), "red");
+assert.equal(collisionTest.get("applet"), "green");
 
 // both values should be retrievable
-assert.equal(collisionTest.get(firstKey), "value1");
-assert.equal(collisionTest.get(secondKey), "value2");
+assert.equal(collisionTest.get("apple"), "red");
+assert.equal(collisionTest.get("applet"), "green");
 
 console.log("Collision handling tests passed!");
 console.log("All current HashMap tests passed!");
