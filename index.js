@@ -40,7 +40,7 @@ class HashMap {
     const index = this.hash(key);
 
     if (this.buckets[index] === undefined) {
-      return undefined;
+      return;
     }
 
     for (const entry of this.buckets[index]) {
@@ -49,7 +49,7 @@ class HashMap {
       }
     }
 
-    return undefined;
+    return;
   }
 
   has(key) {
