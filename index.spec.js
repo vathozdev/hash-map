@@ -28,4 +28,22 @@ assert.equal(test.get("apple"), "green");
 // test that overwriting doesn't create a duplicate
 assert.equal(test.has("apple"), true);
 
+// test collision handling
+const collisionTest = new HashMap();
+
+let firstKey = "key1";
+let secondKey = "key2";
+
+while (collisionTest.hash(firstKey) !== collisionTest.hash(secondKey)) {
+  secondKey += "x";
+}
+
+collisionTest.set(firstKey, "value1");
+collisionTest.set(secondKey, "value2");
+
+// both values should be retrievable
+assert.equal(collisionTest.get(firstKey), "value1");
+assert.equal(collisionTest.get(secondKey), "value2");
+
+console.log("Collision handling tests passed!");
 console.log("All current HashMap tests passed!");
