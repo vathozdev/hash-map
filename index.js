@@ -36,5 +36,21 @@ class HashMap {
     }
   }
 
+  get(key) {
+    const index = this.hash(key);
+
+    if (this.buckets[index] === undefined) {
+      return undefined;
+    }
+
+    for (const entry of this.buckets[index]) {
+      if (entry[0] === key) {
+        return entry[1];
+      }
+    }
+
+    return undefined;
+  }
+
   
 }
