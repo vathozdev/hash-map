@@ -4,4 +4,37 @@ class HashMap {
     this.capacity = 16;
     this.buckets = Array(16);
   }
+
+  hash(key) {
+    let hashCode = 0;
+
+    const primeNumber = 31;
+    for (let i = 0; i < key.length; i++) {
+      hashCode = (primeNumber * hashCode + key.charCodeAt(i)) % this.capacity;
+    }
+    return hashCode;
+  }
+
+  set(key, value) {
+    const index = this.hash(key);
+    let isMatched = false;
+
+    if (this.buckets[index] === undefined) {
+      this.buckets[index] = [];
+    }
+
+    for (const entry of this.buckets[index]) {
+      if (entry[0] === key) {
+        entry[1] = value;
+        isMatched = true;
+        break;
+      }
+    }
+
+    if (!isMatched) {
+      this.buckets[index].push([key, value]);
+    }
+  }
+
+  
 }
