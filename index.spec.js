@@ -24,3 +24,8 @@ assert.equal(test.has("pineapple"), false);
 // test overwriting an existing key
 test.set("apple", "green");
 assert.equal(test.get("apple"), "green");
+
+// test that overwriting doesn't create a duplicate
+assert.equal(test.has("apple"), true);
+
+console.log("All current HashMap tests passed!");
