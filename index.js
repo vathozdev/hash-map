@@ -128,5 +128,19 @@ class HashMap {
 
     return allValues;
   }
+
+  entries() {
+  const allEntries = [];
+
+  for (let index = 0; index < this.buckets.length; index++) {
+    if (this.buckets[index] !== undefined) {
+      for (const entry of this.buckets[index]) {
+        allEntries.push([...entry]);
+      }
+    }
+  }
+
+  return allEntries;
+}
 }
 export { HashMap };
