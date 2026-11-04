@@ -100,5 +100,19 @@ class HashMap {
   clear() {
     this.buckets = Array(this.capacity);
   }
+
+  keys() {
+    const allKeys = [];
+
+    for (let index = 0; index < this.buckets.length; index++) {
+      if (this.buckets[index] !== undefined) {
+        for (const entry of this.buckets[index]) {
+          allKeys.push(entry[0]);
+        }
+      }
+    }
+
+    return allKeys;
+  }
 }
 export { HashMap };
