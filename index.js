@@ -114,5 +114,19 @@ class HashMap {
 
     return allKeys;
   }
+
+  values() {
+    const allValues = [];
+
+    for (let index = 0; index < this.buckets.length; index++) {
+      if (this.buckets[index] !== undefined) {
+        for (const entry of this.buckets[index]) {
+          allValues.push(entry[1]);
+        }
+      }
+    }
+
+    return allValues;
+  }
 }
 export { HashMap };
