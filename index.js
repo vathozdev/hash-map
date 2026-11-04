@@ -168,6 +168,18 @@ class HashSet {
   length() {
     return this.map.length();
   }
+
+  clear() {
+    this.map.clear();
+  }
+
+  values() {
+    return this.map.keys();
+  }
+
+  entries() {
+    return this.map.entries();
+  }
 }
 
 export { HashMap };
