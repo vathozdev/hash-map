@@ -96,5 +96,9 @@ class HashMap {
 
     return total;
   }
+
+  clear() {
+    this.buckets = Array(this.capacity);
+  }
 }
 export { HashMap };
