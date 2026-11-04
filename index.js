@@ -84,5 +84,17 @@ class HashMap {
 
     return false;
   }
+
+  length() {
+    let total = 0;
+
+    for (let index = 0; index < this.buckets.length; index++) {
+      if (this.buckets[index] !== undefined) {
+        total += this.buckets[index].length;
+      }
+    }
+
+    return total;
+  }
 }
 export { HashMap };
