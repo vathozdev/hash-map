@@ -152,6 +152,14 @@ class HashSet {
   hash(key) {
     return this.map.hash(key);
   }
+
+  add(key) {
+    this.map.set(key, true);
+  }
+  
+  has(key) {
+    return this.map.has(key);
+  }
 }
 
 export { HashMap };
