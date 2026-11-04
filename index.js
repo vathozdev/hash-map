@@ -160,6 +160,10 @@ class HashSet {
   has(key) {
     return this.map.has(key);
   }
+
+  remove(key) {
+    return this.map.remove(key);
+  }
 }
 
 export { HashMap };
