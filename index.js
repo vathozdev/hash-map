@@ -164,6 +164,10 @@ class HashSet {
   remove(key) {
     return this.map.remove(key);
   }
+  
+  length() {
+    return this.map.length();
+  }
 }
 
 export { HashMap };
