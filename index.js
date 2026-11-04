@@ -172,13 +172,9 @@ class HashSet {
   clear() {
     this.map.clear();
   }
-
-  values() {
+  
+  keys() {
     return this.map.keys();
-  }
-
-  entries() {
-    return this.map.entries();
   }
 }
 
