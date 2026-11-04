@@ -1,4 +1,3 @@
-
 import { HashMap } from "./index.js";
 import assert from "node:assert/strict";
 
