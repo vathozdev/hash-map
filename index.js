@@ -130,17 +130,45 @@ class HashMap {
   }
 
   entries() {
-  const allEntries = [];
+    const allEntries = [];
 
-  for (let index = 0; index < this.buckets.length; index++) {
-    if (this.buckets[index] !== undefined) {
-      for (const entry of this.buckets[index]) {
-        allEntries.push([...entry]);
+    for (let index = 0; index < this.buckets.length; index++) {
+      if (this.buckets[index] !== undefined) {
+        for (const entry of this.buckets[index]) {
+          allEntries.push([...entry]);
+        }
       }
     }
-  }
 
-  return allEntries;
+    return allEntries;
+  }
 }
+
+class HashSet {
+  constructor() {
+    this.map = new HashMap();
+  }
+  hash(key) {
+    return this.map.hash(key);
+  }
+  add(key) {
+    const index = this.hash(key);
+    let isMatched = false;
+
+    if (this.buckets[index] === undefined) {
+      this.buckets[index] = [];
+    }
+
+    for (const entry of this.buckets[index]) {
+      if (entry[0] === key) {
+        isMatched = true;
+        break;
+      }
+    }
+
+    if (!isMatched) {
+      this.buckets[index].push([key, true]);
+    }
+  }
 }
 export { HashMap };
