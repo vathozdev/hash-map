@@ -67,5 +67,22 @@ class HashMap {
 
     return false;
   }
+
+  remove(key) {
+    const index = this.hash(key);
+
+    if (this.buckets[index] === undefined) {
+      return false;
+    }
+
+    for (const entry of this.buckets[index].entries()) {
+      if (entry[1][0] === key) {
+        this.buckets[index].splice(entry[0], 1);
+        return true;
+      }
+    }
+
+    return false;
+  }
 }
 export { HashMap };
